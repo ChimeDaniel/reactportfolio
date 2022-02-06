@@ -4,59 +4,32 @@ import {makeStyles, Typography,Box} from "@material-ui/core"
 
 const useStyles= makeStyles((theme)=>({
     educationSection: {
-        marginTop: "170px",
-        "& h1, h2, h3, h4, h5, h6": {
-            fontFamily: 'Cambria',
+        "& h1, h2, h3, h4, h5, h6, p": {
+            fontFamily: 'Cambria',    
         },
+        alignItems:"center",
+        width: "100%",
+        marginBottom: "200px",
+    },
+    containerBox: {
         display: "flex",
         width: "100%",
-        alignItems: "center",
-        marginBottom: "200px",
-        [theme.breakpoints.only("md")]:{
-            marginRight:"-100px"
-        }
     },
     educationCourse: {
         marginTop: "30px",
-        [theme.breakpoints.only('xl')]: {
-            width: "1460px",
-        }, [theme.breakpoints.only('lg')]: {
-            width: "1000px",
-        },[theme.breakpoints.only('md')]: {
-            width: "300px",
-        },
     },
-    educationContent: {
+    schoolAndDate: {
         width: "100%",
-        marginTop: "100px"  ,
-        [theme.breakpoints.down('sm')]: {
-            marginRight: "-200px",
-        },
+        display:"flex",
     },
     educationDate: {
-        [theme.breakpoints.up('lg')]: {
-            margin: "100px -100px 0 -280px ",
-            width:"70%"
-        },
-        [theme.breakpoints.only('md')]: {
-            margin: "100px 100px 0 200px ",
-            width:"70%"
-        },
-        width: "70%",
-       
-        marginTop: "30px"
-    },
-    containerBox: {
-        [theme.breakpoints.down('sm')]: {
-            display: "grid",
-          
-        },
-        display: "flex",
-        width: "100%"
-    },
+        width: "25",
+    }, 
     school:{
-        width: "50%"
-    }
+        width: "75%",
+        textAlign:"left",
+    },
+     
 }))
 
 const Education = () => {
@@ -74,13 +47,53 @@ const Education = () => {
     const classes= useStyles()
     return(
         <div className={classes.educationSection} id="educationSection" ref={educationSectionRef} style={{paddingTop:educationPadding, paddingBottom:educationPadding}}>
-            <div>
             <Typography
             variant="h2"
+            style={{
+                marginBottom:"50px"
+            }}
             >
              EDUCATION
             </Typography>
-            <Box  className={classes.containerBox} >
+            
+            <Box  className={classes.containerBox}>
+                <Box>
+                    <Box className={classes.schoolAndDate}>
+                        <Typography 
+                        variant="h4"
+                        className={classes.schoOl}
+                        color="textPrimary">
+                            {"ANCHOR UNIVERSITY LAGOS".toUpperCase()}
+                        </Typography>
+                        <Typography 
+                        variant="body1"
+                        className={classes.educationDate}
+                        >
+                            {"January 2020 - July 2020"}
+                        </Typography>
+                    </Box>
+                    <Typography
+                    variant="h5"
+                    className={classes.degree}
+                    color="textSecondary">
+                        {"BACHELOR OF SCIENCE".toUpperCase()}
+                    </Typography>
+                    <Typography
+                    variant="body1"
+                    className={classes.educationCourse}
+                    color="textSecondary">
+                        {"Computer Science"}
+                    
+                    </Typography><Typography
+                    variant="body1"
+                    className={classes.educationGrade}
+                    color="textSecondary">
+                        {"Second Class Upper Division"}
+                    
+                    </Typography>
+                </Box>
+            </Box>
+            {/* <Box  className={classes.containerBox} >
                 <Box className={classes.educationContent}>
                     <Typography
                         variant="h4"
@@ -95,66 +108,28 @@ const Education = () => {
                         {"BACHELOR OF SCIENCE".toUpperCase()}
                     </Typography>
                     <Typography
-                        variant="h6"
+                        variant="body1"
                         className={classes.educationCourse}
                         color="textSecondary">
                         {"Computer Science"}
 
                     </Typography><Typography
-                        variant="h6"
+                        variant="body1"
                         className={classes.educationGrade}
                         color="textSecondary">
                         {"Second Class Upper Division"}
 
                     </Typography>
 
-                </Box>
+                </Box> 
                 <Box className={classes.educationDate}>
                     <Typography
-                        variant="h6"
+                        variant="body1"
                        >
                         {"January 2020 - July 2020"}
                     </Typography>
                 </Box>
-            </Box>
-            <Box  className={classes.containerBox}>
-                <Box className={classes.educationContent}>
-                            <Typography 
-                            variant="h4"
-                            className={classes.schoOl}
-                            color="textPrimary">
-                                {"ANCHOR UNIVERSITY LAGOS".toUpperCase()}
-                            </Typography>
-                            <Typography
-                            variant="h5"
-                            className={classes.degree}
-                            color="textSecondary">
-                                {"BACHELOR OF SCIENCE".toUpperCase()}
-                            </Typography>
-                            <Typography
-                            variant="h6"
-                            className={classes.educationCourse}
-                            color="textSecondary">
-                                {"Computer Science"}
-                            
-                            </Typography><Typography
-                            variant="h6"
-                            className={classes.educationGrade}
-                            color="textSecondary">
-                                {"Second Class Upper Division"}
-                            
-                            </Typography>
-
-                    </Box>
-                    <Box className={classes.educationDate}>
-                        <Typography 
-                        variant="h6"
-                       >
-                                {"January 2020 - July 2020"}
-                        </Typography>
-                    </Box>
-                </Box>
-        </div>
+            </Box>*/}
         </div>)
 }
 

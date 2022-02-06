@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
   aboutSection:{
     display:"flex",
     alignItems:"center",
-    maxWidth:"100%"
+    maxWidth:"100%",
+    [theme.breakpoints.down("md")]:{
+      maxWidth:"90%",
+    }
   },
   name: {
       "& h1":{

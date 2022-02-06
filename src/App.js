@@ -39,7 +39,7 @@ const App = ()  => {
       textAlign:"justify",
       [theme.breakpoints.up('lg')]: {
         marginLeft: drawerWidth + 30,
-        paddingRight: "270px",
+        paddingRight: "200px",
       },
       flexGrow: 1,
       padding: theme.spacing(3),
