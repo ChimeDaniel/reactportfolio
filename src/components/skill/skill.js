@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useCallback} from 'react';
 import {Typography, Box, makeStyles} from "@material-ui/core"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { brands,solid } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
@@ -32,10 +32,20 @@ const useStyles= makeStyles((theme) =>({
 }))
 
 const Skill = () =>{
+    const [skillPadding, setSkillPadding] = useState()
+    const [skillHeight, setSkillHeight] = useState()
+    const skillSectionRef = useCallback(node => {
+        if (node !== null) {
+            setSkillHeight(node.getBoundingClientRect().height);
+            if(window.innerHeight>skillHeight){
+                setSkillPadding((window.innerHeight-skillHeight)/2)
+            }
+        }
+        }, [skillHeight]);
    
     const classes = useStyles()
     return(<div>
-        <Box className={classes.skillSection} id="skillSection" >
+        <Box className={classes.skillSection} id="skillSection" ref={skillSectionRef} style={{paddingTop:skillPadding, paddingBottom:skillPadding}}>
             <Typography
              variant="h2"
              className={classes.skillTitle}>

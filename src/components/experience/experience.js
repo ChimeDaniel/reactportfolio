@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useCallback} from 'react';
 import {Typography, makeStyles, Box} from "@material-ui/core"
 
 
@@ -53,10 +53,20 @@ const useStyles= makeStyles((theme)=>({
 }))
 
 const Experience = () => {
+    const [experiencePadding, setExperiencePadding] = useState()
+    const [experienceHeight, setExperienceHeight] = useState()
+    const experienceSectionRef = useCallback(node => {
+        if (node !== null) {
+          setExperienceHeight(node.getBoundingClientRect().height);
+          if(window.innerHeight>experienceHeight){
+              setExperiencePadding((window.innerHeight-experienceHeight)/2)
+          }
+        }
+      }, [experienceHeight]);
    
         const classes= useStyles()
         return (
-        <div className={classes.experienceSection} id="experienceSection">
+        <div className={classes.experienceSection} id="experienceSection" ref={experienceSectionRef} style={{paddingTop:experiencePadding, paddingBottom:experiencePadding}}>
             <div>
             <Typography
             variant="h2"

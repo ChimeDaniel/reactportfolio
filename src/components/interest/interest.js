@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useCallback} from 'react';
 import {Typography, Box,makeStyles } from "@material-ui/core"
 
 
@@ -19,9 +19,19 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 const Interest = () =>{
+        const [interestPadding, setInterestPadding] = useState()
+        const [interestHeight, setInterestHeight] = useState()
+        const interestSectionRef = useCallback(node => {
+            if (node !== null) {
+                setInterestHeight(node.getBoundingClientRect().height);
+                if(window.innerHeight>interestHeight){
+                    setInterestPadding((window.innerHeight-interestHeight)/2)
+                }
+            }
+            }, [interestHeight]);
         const classes=useStyles() 
         return(<div>
-            <Box className={classes.interestSection} id="interestSection" >
+            <Box className={classes.interestSection} id="interestSection" ref={interestSectionRef} style={{paddingTop:interestPadding, paddingBottom:interestPadding}}>
                <Typography
                 variant="h2"
                 className={classes.interestTitle}

@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useCallback} from 'react';
 import {Box, Typography,makeStyles} from "@material-ui/core"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {solid } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -26,11 +26,21 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 const Certificate = () => {
+        const [certificatePadding, setCertificatePadding] = useState()
+        const [certificateHeight, setCertificateHeight] = useState()
+        const certificateSectionRef = useCallback(node => {
+            if (node !== null) {
+              setCertificateHeight(node.getBoundingClientRect().height);
+              if(window.innerHeight>certificateHeight){
+                  setCertificatePadding((window.innerHeight-certificateHeight)/2)
+              }
+            }
+          }, [certificateHeight]);
     
     const classes= useStyles()
     return(
          <div>
-            <Box className={classes.certificateSection} id="certificateSection">
+            <Box className={classes.certificateSection} id="certificateSection" ref={certificateSectionRef} style={{paddingTop:certificatePadding, paddingBottom:certificatePadding}}>
                <Typography
                variant="h2"
                className={classes.certificateTitle}

@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useCallback} from 'react';
 import {makeStyles, Typography,Box} from "@material-ui/core"
 
 
@@ -60,10 +60,20 @@ const useStyles= makeStyles((theme)=>({
 }))
 
 const Education = () => {
+    const [educationPadding, setEducationPadding] = useState()
+    const [educationHeight, setEducationHeight] = useState()
+    const educationSectionRef = useCallback(node => {
+        if (node !== null) {
+          setEducationHeight(node.getBoundingClientRect().height);
+          if(window.innerHeight>educationHeight){
+              setEducationPadding((window.innerHeight-educationHeight)/2)
+          }
+        }
+      }, [educationHeight]);
    
     const classes= useStyles()
     return(
-        <div className={classes.educationSection} id="educationSection">
+        <div className={classes.educationSection} id="educationSection" ref={educationSectionRef} style={{paddingTop:educationPadding, paddingBottom:educationPadding}}>
             <div>
             <Typography
             variant="h2"

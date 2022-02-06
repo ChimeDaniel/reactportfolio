@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useCallback, useState} from 'react';
 import {makeStyles, Box,Typography, Link } from "@material-ui/core"
 import {GitHub, LinkedIn, Twitter, Facebook, Instagram} from '@material-ui/icons';
 
@@ -50,19 +50,29 @@ const useStyles = makeStyles((theme) => ({
 
 
 const About = () => {
-  
+    const [aboutPadding, setAboutPadding] = useState(0)
+    const [aboutHeight, setAboutHeight] = useState()
     const classes = useStyles();
-     const defaultProps = {
-      m: 1,
-      style: {
-         width: '4rem', 
-         height: '4rem',
-        display:"flex", 
-        alignItems:"center" },
-     }
+    const defaultProps = {
+    m: 1,
+    style: {
+      width: '4rem', 
+      height: '4rem',
+      display:"flex", 
+      alignItems:"center" },
+    }
+
+    const aboutSectionRef = useCallback(node => {
+      if (node !== null) {
+        setAboutHeight(node.getBoundingClientRect().height);
+        if(window.innerHeight>aboutHeight){
+            setAboutPadding((window.innerHeight-aboutHeight)/2)
+        }
+      }
+    }, [aboutHeight]);
 
    return(
-        <div className={classes.aboutSection} id="aboutSection">
+        <div className={classes.aboutSection} id="aboutSection" ref={aboutSectionRef} style={{paddingTop:aboutPadding, paddingBottom:aboutPadding}}>
           <div className={classes.name}>
             <div>
               <Typography 
@@ -83,7 +93,7 @@ const About = () => {
                 variant="h6"
                 color="textSecondary"
               >
-                {"Anchor University·".toUpperCase()  }
+                {"Anchor University·".toUpperCase() }
               </Typography>
               <Typography 
                 variant="h6"
@@ -98,7 +108,6 @@ const About = () => {
                     {"enochjoseph01@gmail.com".toUpperCase()}
                   </Link>
               </Typography>
-
           </div>
           <div className={classes.aboutContent}>
             <Typography 
@@ -107,6 +116,7 @@ const About = () => {
                 {"Joseph is currently a computer science undergraduate at Anchor University, where he's a leading student researcher in Artificial Intelligence. He is also a member of the Anchor University Laboratory for Interdisciplinary Statistical Science and Data Analysis (AU-LISSDA) In March 2020, he started an internship with HiiT Plc and thus far, he has acquired various soft skills.\n\nIn January 2020, Joseph was selected as a member of the Young Anchor Students Initiative, a group of elite students in Anchor University, founded by the Vice-Chancellor of the university. In February 2020, he founded the first student club in Anchor University (Intlea). He was also accepted by Growth Plan, to be the Institution's Ambassador in Anchor University. He is cureently the Campus Director of the Hult Prize AUL."}
               </Typography>
           </div>
+          
           <div  className={classes.socialIcons}>
              <Box display="flex" justifyContent="left">
                <Box borderRadius="50%" {...defaultProps} bgcolor="primary.main" justifyContent="center" display="flex" className={classes.socialBox}>
