@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/reactportfolio/static/js/main.bdec50da.chunk.js",
-    "main.js.map": "/reactportfolio/static/js/main.bdec50da.chunk.js.map",
+    "main.js": "/reactportfolio/static/js/main.b3c53cd0.chunk.js",
+    "main.js.map": "/reactportfolio/static/js/main.b3c53cd0.chunk.js.map",
     "runtime-main.js": "/reactportfolio/static/js/runtime-main.7ba5a362.js",
     "runtime-main.js.map": "/reactportfolio/static/js/runtime-main.7ba5a362.js.map",
-    "static/js/2.4ca37109.chunk.js": "/reactportfolio/static/js/2.4ca37109.chunk.js",
-    "static/js/2.4ca37109.chunk.js.map": "/reactportfolio/static/js/2.4ca37109.chunk.js.map",
+    "static/js/2.f745b051.chunk.js": "/reactportfolio/static/js/2.f745b051.chunk.js",
+    "static/js/2.f745b051.chunk.js.map": "/reactportfolio/static/js/2.f745b051.chunk.js.map",
     "index.html": "/reactportfolio/index.html",
-    "static/js/2.4ca37109.chunk.js.LICENSE.txt": "/reactportfolio/static/js/2.4ca37109.chunk.js.LICENSE.txt",
+    "static/js/2.f745b051.chunk.js.LICENSE.txt": "/reactportfolio/static/js/2.f745b051.chunk.js.LICENSE.txt",
     "static/media/cropped.6fdbd45d.png": "/reactportfolio/static/media/cropped.6fdbd45d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.7ba5a362.js",
-    "static/js/2.4ca37109.chunk.js",
-    "static/js/main.bdec50da.chunk.js"
+    "static/js/2.f745b051.chunk.js",
+    "static/js/main.b3c53cd0.chunk.js"
   ]
 }
