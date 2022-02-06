@@ -38,19 +38,11 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar
-  ,
   drawerPaper: {
     width: drawerWidth,
     background:"#292b2c",
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
   list:{
-    paddingTop:theme.spacing(4),
     width:"100%",
     
   },
@@ -102,7 +94,7 @@ const SideBar = (props) => {
     <div>
       <div className={classes.toolbar}  />
         <Box display="flex" justifyContent="center">
-       <Box {...defaultProps} className={classes.circleBox}></Box>
+          <Box {...defaultProps} className={classes.circleBox}></Box>
         </Box>
         <List className={classes.list} >
           <Scroll to="aboutSection" smooth={true}>
