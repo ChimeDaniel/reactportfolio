@@ -20,14 +20,13 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     display: "none",
     [theme.breakpoints.up('lg')]: {
-       display: 'flex',
+      display: 'flex',
       width: drawerWidth+"px",
       flexShrink: 0,
     },
   },
   appBar: {
     background:"#292b2c",
-    height:"100px",
     justifyContent:"center",
     [theme.breakpoints.up('lg')]: {
       display:"none", 
@@ -61,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
   },
   circleBox:{
     marginTop:"50%",
-    /*eslint no-template-curly-in-string: "error"*/
     backgroundImage: `url(${image})`,
     backgroundPosition: "50% 50%",
     backgroundSize: "cover",
@@ -163,13 +161,12 @@ const SideBar = (props) => {
           >
             <Menu/>
           </IconButton>
-          <Typography variant="h4" noWrap>
-            Joseph's Porfolio
+          <Typography variant="h6" noWrap>
+            Joseph's Portfolio
           </Typography>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
             container={container}

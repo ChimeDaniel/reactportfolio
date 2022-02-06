@@ -9,19 +9,11 @@ const useStyles = makeStyles((theme) => ({
   aboutSection:{
     display:"flex",
     alignItems:"center",
-     [theme.breakpoints.down('lg')]: {
-       marginTop:"-20px",
-    },
-    [theme.breakpoints.down('xl')]: {            
-         marginRight:"-10%",
-         },
+    maxWidth:"100%"
   },
   name: {
       "& h1":{
         fontFamily: 'Cambria',
-        [theme.breakpoints.down('lg')]: {
-          fontSize:"75px"
-        }
     }
   },
   address: {
@@ -33,10 +25,6 @@ const useStyles = makeStyles((theme) => ({
   aboutContent:{
         "& p ":{
           fontFamily: 'Verdana',
-          fontSize: "1.4em",
-      [theme.breakpoints.down('lg')]: {
-        fontSize: "2em"
-      }
         },
         whiteSpace: 'pre-line',
         wordWrap:"break-word",
