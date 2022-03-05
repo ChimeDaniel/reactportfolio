@@ -1,5 +1,5 @@
 
-import React from 'react';
+import {React, useState} from 'react';
 
 import {AppBar, CssBaseline, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, Box} from '@material-ui/core';
 
@@ -62,7 +62,7 @@ const SideBar = (props) => {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
